@@ -1,0 +1,378 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /credit_cards/:
+    get:
+      tags:
+      - credit_cards
+      description: get CreditCards
+      operationId: CreditCardsController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CreditCards'
+        "403":
+          description: ""
+    post:
+      tags:
+      - credit_cards
+      description: create CreditCards
+      operationId: CreditCardsController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for CreditCards content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreditCards'
+      responses:
+        "201":
+          description: '{int} models.CreditCards'
+        "403":
+          description: body is empty
+  /credit_cards/{id}:
+    get:
+      tags:
+      - credit_cards
+      description: get CreditCards by id
+      operationId: CreditCardsController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CreditCards'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - credit_cards
+      description: update the CreditCards
+      operationId: CreditCardsController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for CreditCards content
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreditCards'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.CreditCards'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - credit_cards
+      description: delete the CreditCards
+      operationId: CreditCardsController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /financial_information/:
+    get:
+      tags:
+      - financial_information
+      description: get FinancialInformation
+      operationId: FinancialInformationController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.FinancialInformation'
+        "403":
+          description: ""
+    post:
+      tags:
+      - financial_information
+      description: create FinancialInformation
+      operationId: FinancialInformationController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for FinancialInformation content
+        required: true
+        schema:
+          $ref: '#/definitions/models.FinancialInformation'
+      responses:
+        "201":
+          description: '{int} models.FinancialInformation'
+        "403":
+          description: body is empty
+  /financial_information/{id}:
+    get:
+      tags:
+      - financial_information
+      description: get FinancialInformation by id
+      operationId: FinancialInformationController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.FinancialInformation'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - financial_information
+      description: update the FinancialInformation
+      operationId: FinancialInformationController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for FinancialInformation content
+        required: true
+        schema:
+          $ref: '#/definitions/models.FinancialInformation'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.FinancialInformation'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - financial_information
+      description: delete the FinancialInformation
+      operationId: FinancialInformationController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /users/:
+    get:
+      tags:
+      - users
+      description: get Users
+      operationId: UsersController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Users'
+        "403":
+          description: ""
+    post:
+      tags:
+      - users
+      description: create Users
+      operationId: UsersController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Users content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      responses:
+        "201":
+          description: '{int} models.Users'
+        "403":
+          description: body is empty
+  /users/{id}:
+    get:
+      tags:
+      - users
+      description: get Users by id
+      operationId: UsersController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Users'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - users
+      description: update the Users
+      operationId: UsersController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Users content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Users'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - users
+      description: delete the Users
+      operationId: UsersController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.CreditCards:
+    title: CreditCards
+    type: object
+  models.FinancialInformation:
+    title: FinancialInformation
+    type: object
+  models.Users:
+    title: Users
+    type: object
+tags:
+- name: users
+  description: |
+    UsersController operations for Users
+- name: financial_information
+  description: |
+    FinancialInformationController operations for FinancialInformation
+- name: credit_cards
+  description: |
+    CreditCardsController operations for CreditCards
