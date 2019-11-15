@@ -10,7 +10,7 @@ import (
 )
 
 type CreditCards struct {
-	Id      int    `orm:"column(id);pk"`
+	Id      int    `orm:"column(id);pk;auto"`
 	Amount  int    `orm:"column(amount)"`
 	Type    string `orm:"column(type)"`
 	IdUsers *Users `orm:"column(id_users);rel(fk)"`

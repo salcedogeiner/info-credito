@@ -11,7 +11,7 @@ import (
 )
 
 type Users struct {
-	Id             int       `orm:"column(id);pk"`
+	Id             int       `orm:"column(id);pk;auto"`
 	Document       string    `orm:"column(document)"`
 	Names          string    `orm:"column(names)"`
 	LastName       string    `orm:"column(last_name)"`

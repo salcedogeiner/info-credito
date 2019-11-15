@@ -10,7 +10,7 @@ import (
 )
 
 type FinancialInformation struct {
-	Id         int    `orm:"column(id);pk"`
+	Id         int    `orm:"column(id);pk;auto"`
 	Occupation string `orm:"column(occupation)"`
 	Profession string `orm:"column(profession)"`
 	Incomes    int    `orm:"column(incomes)"`
