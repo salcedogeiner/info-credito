@@ -3,6 +3,7 @@ package models
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 	"reflect"
 	"strings"
 
@@ -11,13 +12,13 @@ import (
 
 type CreditCards struct {
 	Id      int    `orm:"column(id);pk;auto"`
-	Amount  int    `orm:"column(amount)"`
+	Amount  int    `orm:"column(amount);null"`
 	Type    string `orm:"column(type)"`
 	IdUsers *Users `orm:"column(id_users);rel(fk)"`
 	PayDay  int    `orm:"column(pay_day)"`
-	Cvv     string `orm:"column(cvv)"`
-	Blocked bool   `orm:"column(blocked)"`
-	EndDate string `orm:"column(end_date)"`
+	Cvv     string `orm:"column(cvv);null"`
+	Blocked bool   `orm:"column(blocked);null"`
+	EndDate string `orm:"column(end_date);null"`
 }
 
 func (t *CreditCards) TableName() string {
@@ -32,6 +33,10 @@ func init() {
 // last inserted Id on success.
 func AddCreditCards(m *CreditCards) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Amount = rand.Intn(9999999)
+	m.Cvv = fmt.Sprintf("%d %d %d %d %d", rand.Intn(9999), rand.Intn(9999), rand.Intn(9999), rand.Intn(9999), rand.Intn(999))
+	m.Blocked = false
+	m.EndDate = "01/20"
 	id, err = o.Insert(m)
 	return
 }
